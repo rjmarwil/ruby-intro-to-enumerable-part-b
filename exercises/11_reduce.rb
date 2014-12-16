@@ -10,7 +10,7 @@ RSpec.describe '#reduce' do
   end
 
   it 'returns values that can be arrays' do
-    expect(reduce(["big", "brown", "bear"], []){|result, item| result += [item.upcase] }).to eq(["BIG", "BROWN", "BEAR"])
+    expect(reduce(["big", "brown", "bear"], []){|result, item| result + [item.upcase] }).to eq(["BIG", "BROWN", "BEAR"])
   end
 
   it 'returns the default value when given an empty array' do
