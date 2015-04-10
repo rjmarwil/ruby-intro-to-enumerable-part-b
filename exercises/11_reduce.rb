@@ -1,3 +1,23 @@
+def reduce(input1, input2, &block)
+  a = input2
+  if input2 == 0
+    input1.each do |i|
+      a += i
+    end
+    block.call(a, input2)
+  elsif input2 == 1
+    input1.each do |i|
+      a *= i
+    end
+    block.call(a, input2)
+  elsif input2 == []
+    input1.each do |i|
+      block.call(a, i)
+    end
+  elsif input1 == []
+    input2
+  end
+end
 
 # ------ code above this line ------
 

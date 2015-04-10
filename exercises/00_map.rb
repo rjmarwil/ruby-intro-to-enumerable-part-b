@@ -1,4 +1,9 @@
 def map(items, &block)
+  a = []
+  items.each do |item|
+    a << block.call(item)
+  end
+  a  
 end
 
 # ------ code above this line ------

@@ -1,4 +1,12 @@
-
+def find(input, &block)
+  hash = nil
+  input.each do |i|
+    if block.call(i)
+      hash = i
+    end
+  end
+  hash
+end
 
 # ------ code above this line ------
 

@@ -1,4 +1,21 @@
 def max_by(items, &block)
+  if items.empty?
+    word = nil
+  else
+    word = items[0]
+    items.each do |item|
+      if word.is_a? Integer
+        if word < block.call(item)
+          word = item
+        end
+      else
+        if word.length < block.call(item)
+          word = item
+        end
+      end
+    end
+  end
+  word
 end
 
 # ------ code above this line ------

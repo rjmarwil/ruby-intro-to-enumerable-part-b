@@ -1,4 +1,12 @@
-
+def any?(input, &block)
+  word = false
+  input.each do |i|
+    unless block.call(i)
+      word = true
+    end
+  end
+  word
+end
 
 # ------ code above this line ------
 
@@ -29,7 +37,7 @@ RSpec.describe '#any?' do
     expect(any?(input) { |number| number == 0 }).to eq(true)
   end
 
-  it 'returns false if any of the numbers in the array are even' do
+  it 'returns true if any of the numbers in the array are even' do
     input = [1, 2, 3, 0, 14]
 
     expect(any?(input) { |number| number.even? }).to eq(true)

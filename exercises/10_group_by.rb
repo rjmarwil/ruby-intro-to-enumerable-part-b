@@ -1,4 +1,10 @@
-
+def find(input, &block)
+  hash = Hash.new { [] }
+  input.each do |i|
+    hash[i] = hash[i] << block.call(i)
+  end
+  hash
+end
 
 # ------ code above this line ------
 
