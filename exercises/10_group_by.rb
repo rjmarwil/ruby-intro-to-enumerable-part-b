@@ -1,7 +1,7 @@
-def find(input, &block)
+def group_by(input, &block)
   hash = Hash.new { [] }
   input.each do |i|
-    hash[i] = hash[i] << block.call(i)
+    hash[block.call(i)] = hash[block.call(i)] << i
   end
   hash
 end
