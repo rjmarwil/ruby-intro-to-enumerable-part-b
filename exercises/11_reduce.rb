@@ -1,5 +1,6 @@
 def reduce(input1, input2, &block)
   a = input2
+  b = []
   if input2 == 0
     input1.each do |i|
       a += i
@@ -12,12 +13,23 @@ def reduce(input1, input2, &block)
     block.call(a, input2)
   elsif input2 == []
     input1.each do |i|
-      block.call(a, i)
+      b << block.call(a, i)
     end
+    b.flatten
   elsif input1 == []
     input2
   end
 end
+
+# def reduce(call, acc, &block)
+#   result = nil
+#
+#   call.each do |item|
+#     block.call(acc, item)
+#   end
+#
+#   result
+# end
 
 # ------ code above this line ------
 
