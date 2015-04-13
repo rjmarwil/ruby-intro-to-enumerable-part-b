@@ -1,33 +1,7 @@
-# def reduce(input1, input2, &block)
-#   a = input2
-#   b = []
-#   if input2 == 0
-#     input1.each do |i|
-#       a += i
-#     end
-#     block.call(a, input2)
-#   elsif input2 == 1
-#     input1.each do |i|
-#       a *= i
-#     end
-#     block.call(a, input2)
-#   elsif input2 == []
-#     input1.each do |i|
-#       b << block.call(a, i)
-#     end
-#     b.flatten
-#   elsif input1 == []
-#     input2
-#   end
-# end
-
-def reduce(call, init, &block)
-  acc = init
-
+def reduce(call, acc, &block)
   call.each do |item|
     acc = block.call(acc, item)
   end
-
   acc
 end
 
