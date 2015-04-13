@@ -1,7 +1,7 @@
 def any?(input, &block)
   word = false
   input.each do |i|
-    unless block.call(i)
+    if block.call(i)
       word = true
     end
   end
